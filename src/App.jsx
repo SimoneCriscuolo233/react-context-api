@@ -5,7 +5,7 @@ import Products from './pages/Products';
 import ProductDetail from './pages/ProductDetail';
 import 'bootstrap/dist/css/bootstrap.min.css'
 import Layout from './layout/Layout';
-import { BudgetProvider } from './context/BudgetContext';
+import { BudgetProvider } from './contexts/BudgetContext';
 function App() {
 
 
