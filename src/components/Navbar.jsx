@@ -8,11 +8,11 @@ const links = [
 ]
 
 const Navbar = () => {
-  const { budgetMode, setBudgetMode } = useContext(BudgetContext);
-
-  const toggleBudgetMode = () => {
-    setBudgetMode(!budgetMode);
-  }
+  // const { budgetMode, setBudgetMode } = useContext(BudgetContext);
+  const { maxPrice, setMaxPrice } = useContext(BudgetContext);
+  // const toggleBudgetMode = () => {
+  //   setBudgetMode(!budgetMode);
+  // }
 
 
   return (
@@ -32,12 +32,23 @@ const Navbar = () => {
               </li>
             ))}
           </ul>
-          <button
+          {/* <button
             className="btn btn-outline-light"
             onClick={toggleBudgetMode}
           >
             {budgetMode ? 'Disattiva Modalità Budget' : 'Attiva Modalità Budget'}
-          </button>
+          </button> */}
+          <form className="d-flex" onSubmit={(e) => e.preventDefault()}>
+            <input
+              type="number"
+              className="form-control me-2"
+              placeholder="Prezzo massimo"
+              value={maxPrice ?? ''}
+              onChange={(e) =>
+                setMaxPrice(e.target.value ? Number(e.target.value) : null)
+              }
+            />
+          </form>
         </div>
       </nav>
     </>

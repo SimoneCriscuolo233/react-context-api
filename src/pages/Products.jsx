@@ -10,10 +10,13 @@ const Products = () => {
     axios.get('https://fakestoreapi.com/products')
       .then(res => setProduct(res.data));
   }, []);
-  const { budgetMode } = useContext(BudgetContext);
-
-  const filteredProducts = budgetMode
-    ? product.filter((p) => p.price <= 30)
+  //const { budgetMode } = useContext(BudgetContext);
+  const { maxPrice } = useContext(BudgetContext);
+  // const filteredProducts = budgetMode
+  //   ? product.filter((p) => p.price <= 30)
+  //   : product;
+  const filteredProducts = maxPrice !== null
+    ? product.filter((p) => p.price <= maxPrice)
     : product;
 
 
